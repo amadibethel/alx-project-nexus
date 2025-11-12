@@ -1,101 +1,127 @@
-# Project Nexus Documentation
+# Online Poll System Backend
 
 ## Overview
-**Project Nexus** is a comprehensive documentation hub that encapsulates my journey, growth, and learnings from the **ALX ProDev Backend Engineering Program**.  
-This repository serves as a reflection of the concepts, tools, and best practices I’ve learned throughout the program, demonstrating my understanding of backend systems and real-world software development workflows.
+
+The **Online Poll System Backend** is a real-world backend development project designed as part of the **ProDev Backend Engineering Program**.  
+It focuses on building a scalable, efficient, and well-documented API that powers a real-time online polling application.
+
+The backend provides functionalities for creating polls, casting votes, and computing results dynamically.  
+This project simulates real-world backend engineering challenges — such as **API scalability**, **database optimization**, and **real-time result processing**.
 
 ---
 
-## Project Objective
-The primary objective of this project is to consolidate my key learnings and showcase my ability to:
-- Design and develop robust backend systems.
-- Apply modern engineering practices.
-- Collaborate effectively with frontend developers.
-- Use industry-standard tools for deployment, version control, and CI/CD.
+## Project Goals
+
+The primary objectives of the Online Poll System Backend are to:
+
+- **API Development:**  
+  Develop RESTful APIs for creating polls, casting votes, and fetching results.
+  
+- **Database Efficiency:**  
+  Design normalized database schemas optimized for frequent voting operations and fast result computation.
+  
+- **Documentation:**  
+  Provide comprehensive API documentation using **Swagger (drf-yasg)** for easy understanding and public access.
 
 ---
 
-## Major Learnings
+## Technologies Used
 
-### Key Technologies Covered
-1. **Python** – Core programming language for backend logic, scripting, and automation.  
-2. **Django** – High-level Python web framework for building secure and scalable applications.  
-3. **REST APIs** – Designing and implementing stateless APIs for data exchange between frontend and backend systems.  
-4. **GraphQL** – Query language for APIs enabling flexible and efficient data retrieval.  
-5. **Docker** – Containerization technology for creating consistent development and deployment environments.  
-6. **CI/CD** – Continuous Integration and Continuous Deployment for automated testing and seamless delivery pipelines.
-
----
-
-### Important Backend Development Concepts
-
-- **Database Design**: Understanding relational and non-relational databases, normalization, and data modeling.  
-- **Asynchronous Programming**: Using async/await and concurrency to handle multiple requests efficiently.  
-- **Caching Strategies**: Implementing Redis and other caching layers to optimize performance and reduce latency.  
-- **Authentication & Authorization**: Securing APIs using JWT, OAuth2, and Django’s built-in auth system.  
-- **Testing**: Writing unit, integration, and end-to-end tests to ensure reliability and maintainability.  
-- **Deployment**: Deploying applications using Docker, Render, and CI/CD pipelines.
+| Technology | Purpose |
+|-------------|----------|
+| **Django** | High-level Python web framework for building scalable backend services. |
+| **PostgreSQL** | Relational database used for storing polls, options, and votes. |
+| **Swagger / drf-yasg** | For interactive API documentation and endpoint visualization. |
+| **Docker** *(optional)* | Containerization for consistent development and deployment environments. |
+| **Git & GitHub** | Version control and collaboration. |
 
 ---
 
-## Challenges Faced and Solutions Implemented
+## 🧩 Key Features
 
-| Challenge | Description | Solution |
-|------------|-------------|-----------|
-| API Design | Balancing simplicity with flexibility when designing REST endpoints. | Adopted REST best practices and documented endpoints with Swagger/OpenAPI. |
-| Database Optimization | Slow queries with large datasets. | Implemented indexing and optimized ORM queries. |
-| CI/CD Configuration | Initial pipeline failures during deployment. | Debugged YAML syntax and used GitHub Actions to automate testing and deployment. |
-| Asynchronous Tasks | Difficulty handling long-running processes. | Used Celery with Redis to manage background tasks. |
+### 1. Poll Management
 
----
+- APIs to **create polls** with multiple options.  
+- Each poll includes metadata such as title, description, creation date, and expiry time.  
+- Admin users can manage or delete polls.
 
-## Best Practices and Personal Takeaways
+### 2. Voting System
 
-- Follow the **12-Factor App** methodology for building scalable backend systems.  
-- Write **clean, modular, and reusable code** following PEP8 guidelines.  
-- Prioritize **security** — always sanitize inputs, validate requests, and manage secrets properly.  
-- **Document everything**: from setup instructions to API endpoints.  
-- Embrace **collaboration and code reviews** — they improve code quality and foster learning.  
-- Continuous learning is key — backend technologies evolve rapidly, and staying current is essential.
+- APIs that allow users to **cast votes** for any available option.  
+- Includes **validations to prevent duplicate voting** from the same user or IP address.  
+- Handles concurrent vote submissions efficiently.
 
----
+### 3. Result Computation
 
-## Collaboration – The Key to Success
+- Real-time calculation of **vote counts per option**.  
+- Optimized database queries for scalability with large datasets.  
+- Live update of poll results with minimal latency.
 
-### Who to Collaborate With
-- **Fellow ProDev Backend Learners**  
-  Share ideas, conduct peer reviews, and co-develop projects.
-- **ProDev Frontend Learners**  
-  Collaborate on integrated projects where frontend developers consume your backend APIs.
+### 4. API Documentation
 
-### Where to Collaborate
+- All endpoints are documented with **Swagger** for easy exploration.  
+- Documentation hosted at:
 
- **Discord Channel:** `#ProDevProjectNexus`  
-Join discussions, share progress, seek feedback, and collaborate on joint projects.
+allowing both developers and testers to view, test, and integrate endpoints easily.
 
 ---
 
-## First Week Plan (ProDev Tip)
+## Implementation Process
 
-- Announce your project idea to your peers.  
-- Identify **Frontend Learners** working on similar projects to ensure seamless integration.  
-- Set up communication and collaboration channels for ongoing development.
+### Git Commit Workflow
+
+| Stage | Commit Message | Description |
+|--------|----------------|-------------|
+| **Initial Setup** | `feat: set up Django project with PostgreSQL` | Initialize Django project and configure database. |
+| **Feature Development** | `feat: implement poll creation and voting APIs` | Add core API logic for polls and votes. |
+| **Feature Extension** | `feat: add result computation API` | Implement real-time results endpoint. |
+| **Optimization** | `perf: optimize vote counting queries` | Enhance performance of result computation queries. |
+| **Documentation** | `feat: integrate Swagger documentation` | Add API documentation using drf-yasg. |
+| **Readme Update** | `docs: update README with API usage` | Document setup and endpoint usage. |
+
+---
+
+## Evaluation Criteria
+
+### 1. Functionality
+
+- Polls and options can be created and stored accurately.  
+- Voting works correctly with **no duplication** or data inconsistency.
+
+### 2. Code Quality
+
+- Code follows **Django best practices** and is modular.  
+- PostgreSQL models are efficient, normalized, and well-indexed.  
+- Proper use of **serializers**, **views**, and **permissions**.
+
+### 3. Performance
+
+- Vote counting queries optimized for real-time response.  
+- Application supports **high concurrency** efficiently.
+
+### 4. Documentation
+
+- Swagger API documentation is detailed, accurate, and accessible.  
+- `README.md` includes setup instructions and endpoint examples.
 
 ---
 
-## Repository Information
+## Setup Instructions
 
-**GitHub Repository:** [alx-project-nexus](https://github.com/your-username/alx-project-nexus)  
-**File:** `README.md`  
+### Prerequisites
 
----
+Ensure you have the following installed:
+- Python 3.10+
+- PostgreSQL
+- pipenv / venv
+- Git
 
-### Author
+### Steps
 
-**Bethel Amadi**  
-Backend Developer | AI Product Architect | Member, ALX ProDev  
-South Africa  
-[LinkedIn](https://linkedin.com/in/bethelamadi) | [GitHub](https://github.com/amadibethel)
+1. **Clone the repository**
+ ```bash
+ git clone https://github.com/your-username/online-poll-backend.git
+ cd online-poll-backend
 
----
+
 
